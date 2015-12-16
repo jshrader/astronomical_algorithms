@@ -1,6 +1,13 @@
-*! version 1.1.2   December 16, 2015 @ 10:18:27
+*! version 1.1.2   December 16, 2015 @ 10:21:54
 
 program define solar_calculator
+   * To use this program, you need to have the latitude and longitude for your location, the date
+   * for which you want to calculate the sunset, and the time zone offset for that location and
+   * date. Latitude should be positive for north, negative for south. Longitude should be postive
+   * for east and negative for west (abs(longitude) <= 180). 
+   *
+   * To Do:
+   * . If the user doesn't supply time zone offset, I can still return sunset time in GMT
 
 version 10.0
    syntax [varlist] [if] [in], [Date(varlist) TZ_offset(varlist) LATitude(varlist) LONgitude(varlist) keepall]
