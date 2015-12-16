@@ -1,4 +1,4 @@
-*! version 1.0.0   February 13, 2014 @ 14:17:05
+*! version 1.0.2   December 15, 2015 @ 22:58:52
 
 program define solar_calculator
 
@@ -25,6 +25,8 @@ version 10.0
    gen double eot = 4*(180/_pi)*(foo_y*sin(2*(_pi/180)*(gml_sun))-2*eeo*sin((_pi/180)*(gma_sun))+4*eeo*foo_y*sin((_pi/180)*(gma_sun))*cos(2*(_pi/180)*(gml_sun))-0.5*foo_y*foo_y*sin(4*(_pi/180)*(gml_sun))-1.25*eeo*eeo*sin(2*(_pi/180)*(gma_sun)))
    gen double ha_sunrise = (180/_pi)*(acos(cos((_pi/180)*(90.833))/(cos((_pi/180)*(latitude))*cos((_pi/180)*(sun_dec)))-tan((_pi/180)*(latitude))*tan((_pi/180)*(sun_dec))))
    gen double solar_noon = (720-4*longitude-eot+tz_offset*60)/1440
+   * An edge case can occur if the timezone offset is > 12
+   replace solar_noon = solar_noon - 1 if solar_noon > 1
    gen double sunrise_time = solar_noon - ha_sunrise*4/1440
    gen double sunset_time = solar_noon + ha_sunrise*4/1440
    gen double sunlight_duration = 8*ha_sunrise
@@ -39,6 +41,6 @@ version 10.0
    label var sun_dec "Declination of the sun"
    
    // Clean up 
-   drop time_solcalc jd jc ed gml_sun gma_sun eeo sun_eoc sun_tl sun_ta sun_rv sun_al mobe obc foo_y eot ha_sunrise
+   *drop time_solcalc jd jc ed gml_sun gma_sun eeo sun_eoc sun_tl sun_ta sun_rv sun_al mobe obc foo_y eot ha_sunrise
 
 end
