@@ -1,10 +1,14 @@
-*! version 1.1.2   December 16, 2015 @ 10:21:54
+*! version 1.1.2   February 29, 2016 @ 14:43:03
 
 program define solar_calculator
    * To use this program, you need to have the latitude and longitude for your location, the date
    * for which you want to calculate the sunset, and the time zone offset for that location and
    * date. Latitude should be positive for north, negative for south. Longitude should be postive
-   * for east and negative for west (abs(longitude) <= 180). 
+   * for east and negative for west (abs(longitude) <= 180).
+   *
+   * Important caveat: This algorithm is not intended to be used with very high or low latitude
+   * locations. If your location is above the arctic circle or in Antarctica, the sunset or sunrise time
+   * might be greater than 24. 
    *
    * To Do:
    * . If the user doesn't supply time zone offset, I can still return sunset time in GMT
