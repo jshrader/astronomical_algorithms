@@ -1,4 +1,4 @@
-*! version 1.1.2   February 29, 2016 @ 14:43:03
+*! version 1.1.2   February 29, 2016 @ 14:46:56
 
 program define solar_calculator
    * To use this program, you need to have the latitude and longitude for your location, the date
@@ -17,10 +17,10 @@ version 10.0
    syntax [varlist] [if] [in], [Date(varlist) TZ_offset(varlist) LATitude(varlist) LONgitude(varlist) keepall]
 
    * Maintain previous version functionality by allowing the user to specify nothing
-   if "`date'" == "" local suffix "date"
-   if "`tz_offset'" == "" local suffix "tz_offset"
-   if "`latitude'" == "" local suffix "latitude"
-   if "`longitude'" == "" local suffix "longitude"
+   if "`date'" == "" local date "date"
+   if "`tz_offset'" == "" local tz_offset "tz_offset"
+   if "`latitude'" == "" local latitude "latitude"
+   if "`longitude'" == "" local longitude "longitude"
 
    * Run the calculator
    quietly {
