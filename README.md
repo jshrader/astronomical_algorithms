@@ -9,12 +9,12 @@ Stata version of [NOAA's implementation](http://www.esrl.noaa.gov/gmd/grad/solca
 WARNING: This calculator is accurate to within 1 minute for locations between +/- 72° latitude. For locations outside that area, the result degrade appreciably. 
 
 ### Syntax ###
-    solar_calculator, date([date_var]) tz_offset([tz_offset_var]) latitude([latitude_var]) longitude([longitude_var])
+    solar_calculator, date([varname]) tz_offset([varname]) latitude([varname]) longitude([varname])
 
 ### Inputs: ###
 Note that all arguments are non-optional. I am violating normal Stata syntax here, but it was easier to parse.
 
-* date: Date for which you want to calculate sunset time.
+* date: Date for which you want to calculate sunset time in Stata format.
 * tz_offset: Timezone offset for the date and location. I have written a helper function for this to be released soon.
 * latitude: Latitude of location, positive should be north and negative should be south.
 * longitude: Longitude of location, positive should be east and negative should be west.
