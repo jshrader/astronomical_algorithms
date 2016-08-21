@@ -1,4 +1,4 @@
-*! version 1.1.2   February 29, 2016 @ 14:46:56
+*! version 1.1.2   February 29, 2016 @ 14:52:30
 
 program define solar_calculator
    * To use this program, you need to have the latitude and longitude for your location, the date

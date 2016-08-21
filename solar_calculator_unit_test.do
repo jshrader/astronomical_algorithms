@@ -20,6 +20,10 @@ su sunset_time
 assert r(mean) > 20.33029
 assert r(mean) < 20.3303
 
+* The old way
+keep date latitude longitude tz_offset
+solar_calculator
+
 * With differently named arguments
 keep date latitude longitude tz_offset
 rename date v1
@@ -30,3 +34,4 @@ solar_calculator, date(v1) tz_offset(v2) latitude(v3) longitude(v4)
 su sunset_time 
 assert r(mean) > 20.33029
 assert r(mean) < 20.3303
+
