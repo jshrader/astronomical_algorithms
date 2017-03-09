@@ -35,3 +35,23 @@ su sunset_time
 assert r(mean) > 20.33029
 assert r(mean) < 20.3303
 
+* Generate balanced panel of sun related variables
+clear
+set obs 36500
+gen day = floor(_n/100)*100
+replace day = 0 if day == 36500
+bysort day: gen id = _n
+gen latitude = id - 11
+bysort id: gen doy = _n
+drop day
+gen date = .
+replace date = d(31dec2000) + doy
+gen tz_offset = 1
+gen longitude = 0
+solar_calculator
+
+gen year = year(date)
+collapse (mean) sunlight_duration, by(year latitude)
+* You can clearly see that the calculator breaks down near the arctic
+* (or antarctic) circle.
+twoway line sunlight_duration latitude
