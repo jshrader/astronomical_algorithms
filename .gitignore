@@ -2,3 +2,5 @@ geo/*
 .DS_Store
 .Rhistory
 .statahistory
+plotdaynightterminator.m
+terminator_examples.m
