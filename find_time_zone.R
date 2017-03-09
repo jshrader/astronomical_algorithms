@@ -1,16 +1,23 @@
 ## Find the time zone name for a given location and find the time zone offset
 ## for a given location and date.
+##
+## Jeffrey Shrader
+## 2017-01-15
+## Time-stamp: "2017-01-18 14:47:09 jgs"
 
 ## Preliminaries
-packages <- c("sp","rgeos","rgdal","raster","foreign","data.table","readr","iotools","maptools","ggplot2")
+packages <- c("sp","rgeos","rgdal","raster","data.table","readr","iotools","maptools")
 lapply(packages, library, character.only = TRUE)
 
 ## Load the time zone shapefile once, since it is rather slow
 tz_dir <- paste0('~/Dropbox/research/data/timezone/')
 tz <- shapefile(paste0(tz_dir,"tz_world.shp"))
-tz_usa_dir <- paste0('~/Dropbox/research/data/maps/usa/time_zone/tz_us/')
-tz_usa <- shapefile(paste0(tz_usa_dir,"tz_us.shp"))
- 
+usa <- FALSE
+if(usa==TRUE){
+    tz_usa_dir <- paste0('~/Dropbox/research/data/maps/usa/time_zone/tz_us/')
+    tz_usa <- shapefile(paste0(tz_usa_dir,"tz_us.shp"))
+}
+
 ## Find time zone name for a given location. This will be the most recent
 ## time zone name, but beware that these timezones can change over time.
 ##
@@ -74,7 +81,7 @@ test_tz <- function(){
     ## Known time zones returned with USA only 
     ptm <- proc.time()
     st <- find_tz(st_known,usa=TRUE)
-        if(mean(ifelse(st$tzid == test_tz,1,0))<1){
+    if(mean(ifelse(st$tzid == test_tz,1,0),na.rm=TRUE)<1){
         stop("Incorrect time zone returned")
     }
     print(paste0('Known TZs took ',round((proc.time() - ptm)[3],1),' seconds with USA.'))

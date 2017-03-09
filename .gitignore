@@ -1,2 +1,4 @@
 geo/*
 .DS_Store
+.Rhistory
+.statahistory
