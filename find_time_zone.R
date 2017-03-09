@@ -3,7 +3,7 @@
 ##
 ## Jeffrey Shrader
 ## 2017-01-15
-## Time-stamp: "2017-01-18 14:47:09 jgs"
+## Time-stamp: "2017-03-09 10:57:28 jgs"
 
 ## Preliminaries
 packages <- c("sp","rgeos","rgdal","raster","data.table","readr","iotools","maptools")
@@ -11,10 +11,12 @@ lapply(packages, library, character.only = TRUE)
 
 ## Load the time zone shapefile once, since it is rather slow
 tz_dir <- paste0('~/Dropbox/research/data/timezone/')
+##tz_dir <- paste0('C:/Users/jgs/Dropbox/research/data/timezone/')
 tz <- shapefile(paste0(tz_dir,"tz_world.shp"))
 usa <- FALSE
 if(usa==TRUE){
     tz_usa_dir <- paste0('~/Dropbox/research/data/maps/usa/time_zone/tz_us/')
+    ##tz_usa_dir <- paste0('C:/Users/jgs/Dropbox/research/data/maps/usa/time_zone/tz_us/')
     tz_usa <- shapefile(paste0(tz_usa_dir,"tz_us.shp"))
 }
 
