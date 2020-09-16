@@ -20,10 +20,10 @@ Note that all arguments are non-optional. I am violating normal Stata syntax her
 * longitude: Longitude of location, positive should be east and negative should be west.
 
 ### Outputs ###
-* sunset_time
-* sunrise_time
+* sunset_time - In decimal hours (see [here](https://www.stata.com/statalist/archive/2009-08/msg00303.html) for how to convert to hours and minutes)
+* sunrise_time - In decimal hours (see [here](https://www.stata.com/statalist/archive/2009-08/msg00303.html) for how to convert to hours and minutes)
 * solar_noon: [Solar noon](https://en.wikipedia.org/wiki/Noon#Solar_noon)
-* sunlight_duration
+* sunlight_duration - In minutes (despite what the variable label says)
 * sun_dec: [Declination of the sun](https://en.wikipedia.org/wiki/Position_of_the_Sun#Declination_of_the_Sun_as_seen_from_Earth)
 
 
