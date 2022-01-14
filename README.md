@@ -45,6 +45,8 @@ sp, rgeos, stringr, rgdal, raster, foreign, data.table, iotools, maptools, and r
 
 You will also need to download the [tz_world shapefile](http://efele.net/maps/tz/world/) and make it accessible to this code. Then, edit the path to tz_world in `find_time_zone.R`.
 
+One might be able to replace this file with the countytimezones package in R: https://cran.r-project.org/web/packages/countytimezones/countytimezones.pdf
+
 ### find_tz ###
 #### Syntax ####
 `find_tz(<input data>)`
